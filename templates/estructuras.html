@@ -1,0 +1,36 @@
+{{ template "header"}}
+
+<main class="container">
+    <h1>Estructuras</h1>
+    <h3>Declaracion de variables</h3>
+    {{with $valor:="mi valor"}}
+        <p> {{$valor}}</p>
+    {{end}}
+    <hr />
+    <h3> Valores desde struct</h3>
+    <ul>
+        <li>Nombre: {{.Nombre}}</li>
+        <li>Edad: {{.Edad}}</li>
+        <li>Pefil: {{.Perfil}}</li>
+    </ul>
+    <hr />
+    <h3>Condicionales</h3>
+    {{ if ge .Edad 18}}
+    <p>Eres mayor de edad</p>
+    {{else}}
+    <p>Eres menor de edad</p>
+    {{end}}
+    {{if eq .Perfil 1}}
+    <p>Esta verificado</p>
+    {{else}}
+    <p>No está verificado</p>
+    {{end}}
+    <hr />
+    <h3>Iteraciones</h3>
+    <ul>
+        {{ range .Habilidades }}
+            <li>{{ .Nombre }}</li>
+        {{ end }}
+    </ul>
+</main>
+{{ template "pie"}}
