@@ -23,6 +23,9 @@ func main() {
 	mux.HandleFunc("/formularios", rutas.FormulariosGet)
 	mux.HandleFunc("/formularios-post", rutas.FormulariosPost).Methods("POST")
 
+	mux.HandleFunc("/formularios/upload", rutas.FormulariosUploadGet)
+	mux.HandleFunc("/formularios/uploadPost", rutas.FormulariosUploadPost).Methods("POST")
+
 	//Archivos estaticos hacia mux
 	s := http.StripPrefix("/assets/", http.FileServer(http.Dir("./assets/")))
 	mux.PathPrefix("/assets/").Handler(s)

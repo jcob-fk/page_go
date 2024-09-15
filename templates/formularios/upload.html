@@ -1,0 +1,26 @@
+{{ template "header"}}
+
+<main class="container">
+    <h1>Upload</h1>
+    {{if ne .css ""}}
+    <div class="alert alert-{{.css}} alert-dismissible fade show" role="alert">
+      {{.mensaje}}
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{end}}
+      <div class="row">
+        <form action="/formularios/uploadPost" method="POST" enctype="multipart/form-data">
+
+          <div class="form-group">
+            <label for="foto">Foto:</label>
+            <input type="file" name="foto" id="foto" class="form-control" />
+          </div>
+      
+          <hr />
+          <input type="submit" value="enviar" title="Enviar" class="btn btn-primary" />
+
+        </form>
+      </div>
+</main>
+
+{{ template "pie"}}
